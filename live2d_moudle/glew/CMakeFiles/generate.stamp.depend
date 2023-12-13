@@ -1,0 +1,8 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindOpenGL.cmake
+C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageMessage.cmake
+C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/GNUInstallDirs.cmake
+C:/Users/11477/Downloads/CubismSdkForNative-4-r.7/CubismSdkForNative-4-r.7/Samples/OpenGL/thirdParty/glew/build/cmake/CMakeLists.txt
+C:/Users/11477/Downloads/CubismSdkForNative-4-r.7/CubismSdkForNative-4-r.7/Samples/OpenGL/thirdParty/glew/build/cmake/cmake_uninstall.cmake.in
+C:/Users/11477/Downloads/CubismSdkForNative-4-r.7/CubismSdkForNative-4-r.7/Samples/OpenGL/thirdParty/glew/glew.pc.in

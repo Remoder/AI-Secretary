@@ -1,0 +1,14 @@
+target_sources(${APP_NAME}
+    PRUBLIC
+      ${CMAKE_CURRENT_SOURCE_DIR}/LAppAllocator.hpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/LAppDefine.hpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/LAppDelegate.hpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/LAppWavFileHandler.hpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/LAppLive2DManager.hpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/LAppModel.hpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/LAppPal.hpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/LAppSprite.hpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/LAppTextureManager.hpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/LAppView.hpp
+      ${CMAKE_CURRENT_SOURCE_DIR}/TouchManager.hpp
+  )

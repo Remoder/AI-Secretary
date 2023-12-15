@@ -1344,6 +1344,24 @@ static int createNativeWindow(_GLFWwindow* window,
                                            _glfw.win32.instance,
                                            (LPVOID) wndconfig);
 
+
+
+    //INFO
+    //设置窗口的扩展样式，使其支持层叠窗口
+    SetWindowLong(window->win32.handle, GWL_EXSTYLE, GetWindowLong(window->win32.handle, GWL_EXSTYLE) | WS_EX_LAYERED);
+    //让窗体边框透明
+    SetWindowLong(window->win32.handle, GWL_STYLE, WS_POPUP | WS_VISIBLE);
+    //控制模型的左右位置，越大越右
+    const int mysetPosX = 1300;
+    //控制模型的上下位置，越大越下
+    const int mysetPosY = 500;
+    //更改窗口位置
+    SetWindowPos(window->win32.handle, HWND_TOPMOST, mysetPosX, mysetPosY, 0, 0, SWP_SHOWWINDOW | SWP_FRAMECHANGED);
+    //改变窗口背景变更为透明
+    SetLayeredWindowAttributes(window->win32.handle, RGB(0, 0, 0), 0, LWA_COLORKEY);
+
+
+
     _glfw_free(wideTitle);
 
     if (!window->win32.handle)

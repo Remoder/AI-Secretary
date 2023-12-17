@@ -22,9 +22,11 @@ using namespace LAppDefine;
 
 LAppView::LAppView():
     _programId(0),
-    //_back(NULL),
+    // _back(NULL),
     // _gear(NULL),
-    //_power(NULL),
+    // _power(NULL),
+    _message(NULL),
+
     _renderSprite(NULL),
     _renderTarget(SelectTarget_None)
 {
@@ -53,6 +55,7 @@ LAppView::~LAppView()
     //delete _back;
     //delete _gear;
     //delete _power;
+    delete _message; 
 }
 
 void LAppView::Initialize()
@@ -106,6 +109,7 @@ void LAppView::Render()
     //_back->Render();
     // _gear->Render();
     // _power->Render();
+    _message->Render();
 
     LAppLive2DManager* Live2DManager = LAppLive2DManager::GetInstance();
 
@@ -141,6 +145,9 @@ void LAppView::Render()
 
 void LAppView::InitializeSprite()
 {
+    float x, y, fWidth, fHeight;
+    string imageName;
+
     _programId = LAppDelegate::GetInstance()->CreateShader();
 
     int width, height;
@@ -149,37 +156,47 @@ void LAppView::InitializeSprite()
     LAppTextureManager* textureManager = LAppDelegate::GetInstance()->GetTextureManager();
     const string resourcesPath = ResourcesPath;
 
-    string imageName = BackImageName;
+    /*string imageName = BackImageName;
     LAppTextureManager::TextureInfo* backgroundTexture = textureManager->CreateTextureFromPngFile(resourcesPath + imageName);
 
     float x = width * 0.5f;
     float y = height * 0.5f;
     float fWidth = static_cast<float>(backgroundTexture->width * 2.0f);
     float fHeight = static_cast<float>(height * 0.95f);
-    //_back = new LAppSprite(x, y, fWidth, fHeight, backgroundTexture->id, _programId);
+    _back = new LAppSprite(x, y, fWidth, fHeight, backgroundTexture->id, _programId);*/
 
-    imageName = GearImageName;
+    /* imageName = GearImageName;
     LAppTextureManager::TextureInfo* gearTexture = textureManager->CreateTextureFromPngFile(resourcesPath + imageName);
 
     x = static_cast<float>(width - gearTexture->width * 0.5f);
     y = static_cast<float>(height - gearTexture->height * 0.5f);
     fWidth = static_cast<float>(gearTexture->width);
     fHeight = static_cast<float>(gearTexture->height);
-    // _gear = new LAppSprite(x, y, fWidth, fHeight, gearTexture->id, _programId);
+    _gear = new LAppSprite(x, y, fWidth, fHeight, gearTexture->id, _programId);*/
 
-    imageName = PowerImageName;
+    /* imageName = PowerImageName;
     LAppTextureManager::TextureInfo* powerTexture = textureManager->CreateTextureFromPngFile(resourcesPath + imageName);
 
     x = static_cast<float>(width - powerTexture->width * 0.5f);
     y = static_cast<float>(powerTexture->height * 0.5f);
     fWidth = static_cast<float>(powerTexture->width);
     fHeight = static_cast<float>(powerTexture->height);
-    // _power = new LAppSprite(x, y, fWidth, fHeight, powerTexture->id, _programId);
+    _power = new LAppSprite(x, y, fWidth, fHeight, powerTexture->id, _programId);*/
 
     // 画面全体を覆うサイズ
     x = width * 0.5f;
     y = height * 0.5f;
     _renderSprite = new LAppSprite(x, y, static_cast<float>(width), static_cast<float>(height), 0, _programId);
+
+    /* INFO 消息框按钮 */
+    imageName = MessageImageName;
+    LAppTextureManager::TextureInfo* messageTexture = textureManager->CreateTextureFromPngFile(resourcesPath + imageName);
+
+    x = static_cast<float>(x + width * 0.5f - 1.8 * messageTexture->width * 0.5f); // + right, - left
+    y = static_cast<float>(y + height * 0.5f - 1.2 * messageTexture->height * 0.5f); // + up, - down
+    fWidth = static_cast<float>(messageTexture->width);
+    fHeight = static_cast<float>(messageTexture->height);
+    _message = new LAppSprite(x, y, fWidth, fHeight, messageTexture->id, _programId);
 }
 
 void LAppView::OnTouchesBegan(float px, float py) const
@@ -225,6 +242,12 @@ void LAppView::OnTouchesEnded(float px, float py) const
         {
             LAppDelegate::GetInstance()->AppEnd();
         }*/
+
+        // 消息框按钮被按下
+        if (_message->IsHit(px, py))
+        {
+            printf("yes!");
+        }
     }
 }
 

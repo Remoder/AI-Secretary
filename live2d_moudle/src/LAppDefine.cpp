@@ -36,6 +36,8 @@ namespace LAppDefine {
     const csmChar* GearImageName = "icon_gear.png";
     // 終了ボタン
     const csmChar* PowerImageName = "close.png";
+    // 消息框按钮
+    const csmChar* MessageImageName = "message.png";
 
     // モデル定義------------------------------------------
     // モデルを配置したディレクトリ名の配列
@@ -47,7 +49,7 @@ namespace LAppDefine {
     //    "Hiyori",
     //    "Natori",
     //    "Rice",
-    //    "Mao",
+        //"Mao",
     //    "Yuri"
     };
     const csmInt32 ModelDirSize = sizeof(ModelDir) / sizeof(const csmChar*);
